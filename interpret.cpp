@@ -32,6 +32,10 @@ int main(void){
 					index[link] = brojac++;
 					//cout << link << " NJEGOV INDEX: " << index[link]<< endl;
 				}
+				if(index.find(outLink) == index.end()){
+					index[outLink] = brojac++;
+					//cout << outLink << " NJEGOV INDEX: " << index[outLink]<< endl;
+				}
 
 				if(outLink ==  "---") break;
 				kolekcija[link].insert(outLink);				
@@ -44,15 +48,15 @@ int main(void){
 	}
 /*
 	for(it=kolekcija.begin(); it!=kolekcija.end(); it++){
-		cout << it->first << " POKAZUJE NA ";
+		cout << it->first << " POKAZUJE NA " << endl;
 		for(setIterator=(it->second).begin(); setIterator!=(it->second).end(); setIterator++){
-			cout << *setIterator << ", ";
+			cout << *setIterator << endl;
 		}
-		cout << "VELICINA SET-A: " << it->second.size() << endl;
+		cout << "VELICINA SET-A: " << it->second.size() << endl << endl;
 	}
 	cout << endl;
 */
-	const unsigned int n = kolekcija.size();
+	const unsigned int n = index.size(); cout << endl << n;
 	unsigned int i=0, j=0, N[n] = {0};
 	double Q[n][n] = {};
 
@@ -72,7 +76,14 @@ int main(void){
 			i = index[it->first];
 			j = index[*setIterator];
 			//cout << it->first << " " << i << ", " << *setIterator << " " << j << endl;
-			Q[i][j] = 1.0 / (double) (it->second).size();
+			if((it->second).size() != 0){
+				Q[i][j] = 1.0 / (double) (it->second).size();
+				/*
+				cout << "POKAZUJE: index(" << it->first << ") = " << i << endl;
+				cout << "index(" << *setIterator << ") = " << j << endl;
+				cout << "VELICINA: " << (it->second).size() << endl << endl;
+				*/
+			}
 		}
 	}
 
@@ -91,8 +102,8 @@ int main(void){
 		izlaz << endl;
 	}
 
-    //izlaz.close();
-    //inputLinkovi.close();
+    izlaz.close();
+    inputLinkovi.close();
 
 	return EXIT_SUCCESS;
 }
