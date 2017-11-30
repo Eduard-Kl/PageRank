@@ -56,7 +56,7 @@ int main(void){
 	}
 	cout << endl;
 */
-	const unsigned int n = index.size(); cout << endl << n;
+	const unsigned int n = index.size();
 	unsigned int i=0, j=0, N[n] = {0};
 	double Q[n][n] = {};
 
