@@ -53,7 +53,7 @@ def crawler(url, maxBrojStranica):
             print("  *Preskačem*")
 
 def main():
-    crawler("http://www.kikora.com", 20000);     # Početni link
+    crawler("http://www.meteo.hr", 20000);     # Početni link
 
 if __name__== "__main__":
     main()
