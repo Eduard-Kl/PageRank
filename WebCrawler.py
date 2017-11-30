@@ -48,12 +48,12 @@ def crawler(url, maxBrojStranica):
                 spremnik.write("\n")
             spremnik.write("---\n")
             potrebnoPosjetiti = potrebnoPosjetiti + links
-            print("  *Uspjeh*")
+            #print("  *Uspjeh*")
         except:
-            print("  *Greška*")
+            print("  *Preskačem*")
 
 def main():
-    crawler("http://www.meteo.hr/", 20000);     # Početni link
+    crawler("http://www.kikora.com", 20000);     # Početni link
 
 if __name__== "__main__":
     main()
